@@ -46,19 +46,23 @@ const Home = () => {
         <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-primary/20 blur-3xl will-change-transform" style={{ transform: parallax1 }} />
         <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-secondary/20 blur-3xl will-change-transform" style={{ transform: parallax2 }} />
         <header className="bg-gradient-to-r from-primary/10 via-accent to-secondary/10 border-b bg-fixed">
-          <div className="container mx-auto px-4 py-10 flex items-center gap-8">
+          <div className="container mx-auto px-4 py-6 sm:py-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
             <img
               src="/kdccb%20logo.jpg"
               alt="KDCCB Centenary"
-              className="hidden sm:block w-28 h-28 rounded-full ring-4 ring-primary/30 bg-white shadow-lg object-contain will-change-transform"
+              className="w-20 h-20 sm:w-28 sm:h-28 rounded-full ring-4 ring-primary/30 bg-white shadow-lg object-contain will-change-transform"
               style={{ transform: parallax1 }}
-              onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display='none';}}
+              onError={(e)=>{
+                console.log('Image failed to load:', e.currentTarget.src);
+                (e.currentTarget as HTMLImageElement).style.display='none';
+              }}
+              onLoad={() => console.log('Image loaded successfully')}
             />
-            <div>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent flex items-center gap-3">
-                KDCCB Financial Tools <Sparkles className="w-7 h-7 text-secondary" />
+            <div className="text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent flex items-center justify-center sm:justify-start gap-3">
+                KDCCB Financial Tools <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-secondary" />
               </h1>
-              <p className="mt-3 text-base md:text-lg text-foreground/70 max-w-2xl">
+              <p className="mt-3 text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl">
                 Professional, colorful and modern tools to manage deposits, calculate loans, and analyze DCB.
               </p>
             </div>

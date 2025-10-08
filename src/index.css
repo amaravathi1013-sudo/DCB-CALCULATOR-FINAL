@@ -121,4 +121,23 @@ All colors MUST be HSL.
     -moz-appearance: textfield;
     appearance: textfield;
   }
+  /* Completely disable number input behavior */
+  input[type=number] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  /* Prevent arrow key changes */
+  input[type=number]:focus {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  /* Disable mouse wheel changes */
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    display: none !important;
+  }
 }
